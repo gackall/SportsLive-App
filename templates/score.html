@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ ngames }} Games On {{ title }}</title>
+    <link href = "{{ url_for('static', filename='styles/style.css') }}" rel="stylesheet" />
+</head>
+
+<body>
+    <h1> {{ ngames }} Games On {{ title }}</h1>
+    {% for game in games %}
+            <p>{{ game.team1 }}: {{ game.score1 }}</p>
+            <p>{{ game.team2 }}: {{ game.score2 }}</p>
+            <br>
+    {% endfor %}
+
+
+    <form action="/score">
+        <input type="text" name="date" id = "date"
+        placeholder="Enter a date: yyyy-mm-dd" />
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
