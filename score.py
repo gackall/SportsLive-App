@@ -36,8 +36,9 @@ if __name__ == '__main__':
         team2 = game_data["data"][i]["visitor_team"]["full_name"]
         score1 = game_data["data"][i]["home_team_score"]
         score2 = game_data["data"][i]["visitor_team_score"]
+        status = game_data["data"][i]["status"]
         game = {"team1": team1, "score1": score1, "team2": team2, "score2": score2}
         games_list.append(game)
     print("\n")
-    pprint(games_list)
+    pprint(game_data["data"][0])
     

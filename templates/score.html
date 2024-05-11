@@ -3,23 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ ngames }} Games On {{ title }}</title>
-    <link href = "{{ url_for('static', filename='styles/style.css') }}" rel="stylesheet" />
+    <title>{{ ngames }} Games Today</title>
+    <link href="{{ url_for('static', filename='styles/style.css') }}" rel="stylesheet" />
 </head>
-
 <body>
-    <h1> {{ ngames }} Games On {{ title }}</h1>
-    {% for game in games %}
-            <p>{{ game.team1 }}: {{ game.score1 }}</p>
-            <p>{{ game.team2 }}: {{ game.score2 }}</p>
-            <br>
-    {% endfor %}
+    <h1>{{ ngames }} Games Today</h1>
 
+    <div class="game-container">
+        {% for game in games %}
+            <div class="game" id="game{{ loop.index }}">
+                <div class="status">
+                    <h2>{{ game.status }}</h2>
+                </div>
+                <div class="team team1">
+                    <img src="{{ game.logo1 }}" width="75" height="75">
+                    <span>{{ game.team1 }}</span>
+                    <span>  {{ game.score1 }}  </span>
+                </div>
+                <div class="team team2">
+                    <img src="{{ game.logo2 }}" width="75" height="75">
+                    <span>{{ game.team2 }}</span>
+                    <span>  {{ game.score2 }}  </span>
+                </div>
+                <div class="chat-button">
+                    <a href="/chat" class="chat-link">Chat</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 
-    <form action="/score">
-        <input type="text" name="date" id = "date"
-        placeholder="Enter a date: yyyy-mm-dd" />
-        <button type="submit">Submit</button>
-    </form>
 </body>
 </html>
