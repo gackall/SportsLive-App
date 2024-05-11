@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request
 from score import get_games
 from waitress import serve
-from datetime import date
+from datetime import datetime
+import pytz
 
 app = Flask(__name__)
 
@@ -10,7 +11,7 @@ app = Flask(__name__)
 
 @app.route('/score')
 def get_score():
-    today_date = date.today()
+    today_date = datetime.now(pytz.timezone("US/Arizona")).date()
     game_data = get_games(today_date)
 
     games_list = []
@@ -31,7 +32,6 @@ def get_score():
     return render_template(
         "score.html",
         ngames = ngames,
-        title = date,
         games = games_list
     )
 
