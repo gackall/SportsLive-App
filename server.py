@@ -17,7 +17,6 @@ rooms = {}
 def score():
     session.clear()
     today_date = datetime.now(pytz.timezone("US/Arizona")).date()
-    today_date = '2024-02-24'
     game_data = get_games(today_date)
     games_list = []
     ngames = len(game_data["data"])
