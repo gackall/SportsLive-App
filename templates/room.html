@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 {% extends 'base.html' %} {% block content %}
 <div id="room-container">
-  <h1 id="home-header">Flask Chat 💬</h1>
+  <h1 id="home-header">Live Game Chat 💬</h1>
   <div id="room-subsection">
     <h2 id="room-code-display">Room Code: <span>{{room}}</span></h2>
     <a href="/" id="leave-chat-btn">Leave the Chat</a>
@@ -27,7 +27,7 @@
         var content = `
           <li class="message-item ${senderIsUser ? "self-message-item" : "peer-message-item"}">
               <p>${message}</p>
-              <small class="${senderIsUser ? "muted-text" : "muted-text-white"}">${sender} ${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</small>
+              <small class="${senderIsUser ? "muted-text-white" : "muted-text"}">${sender} ${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</small>
           </li>
       `;}
       messages.innerHTML += content;

@@ -2,8 +2,10 @@ from flask import Flask, request, render_template, redirect, url_for, session
 from flask_socketio import SocketIO, join_room, leave_room, send
 import random
 import string
+import os
 
 app = Flask(__name__)
+app_key = os.getenv("SECRET_KEY")
 app.config["SECRET_KEY"] = "supersecretkey"
 socketio = SocketIO(app)
 
@@ -18,6 +20,10 @@ def generate_room_code(length: int, existing_codes: list[str]) -> str:
         code = ''.join(code_chars)
         if code not in existing_codes:
             return code
+        
+
+
+
 
 @app.route('/', methods=["GET", "POST"])
 def home():

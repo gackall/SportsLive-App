@@ -1,8 +1,11 @@
+import re
+from urllib import response
 from dotenv import load_dotenv
 from pprint import pprint
 import requests
 import os
-
+import urllib.request
+import json
 
 load_dotenv()
 
@@ -15,10 +18,10 @@ def get_games(date = "2024-05-09"):
     headers = {
     'Authorization': api_key 
     }
-    response = requests.get(api_url, headers=headers)
-
-
-    return response.json()
+    req = urllib.request.Request(api_url, headers=headers)
+    response = urllib.request.urlopen(req)
+    json_res = json.loads(response.read())
+    return json_res
 
 #    if response.status_code == 200:
 #        data = response.json()
@@ -42,4 +45,3 @@ if __name__ == '__main__':
         games_list.append(game)
     print("\n")
     pprint(game_data["data"][0])
-    

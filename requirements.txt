@@ -1,6 +1,7 @@
 bidict==0.23.1
 blinker==1.8.2
 certifi==2024.2.2
+cffi==1.16.0
 charset-normalizer==3.3.2
 click==8.1.7
 colorama==0.4.6
@@ -9,6 +10,8 @@ eventlet==0.17.4
 Flask==3.0.3
 Flask-Cors==4.0.1
 Flask-SocketIO==5.3.6
+gevent==24.2.1
+gevent-websocket==0.10.1
 greenlet==3.0.3
 gunicorn==18.0
 h11==0.14.0
@@ -17,6 +20,7 @@ importlib_metadata==7.1.0
 itsdangerous==2.2.0
 Jinja2==3.1.4
 MarkupSafe==2.1.5
+pycparser==2.22
 python-dotenv==1.0.1
 python-engineio==4.9.1
 python-socketio==5.11.2
@@ -29,4 +33,5 @@ waitress==3.0.0
 Werkzeug==3.0.3
 wsproto==1.2.0
 zipp==3.18.1
+zope.event==5.0
 zope.interface==6.3
